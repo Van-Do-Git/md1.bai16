@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(doC) {
+            this.doc=doC;
+        }
+        doisangdoF(){
+            return this.doc*9/5 + 32;
+        }
+        doisangdoKenvi(){
+            return this.doc + 273.5;
+        }
+    }
+    let nhietdophong= new Temperature(25);
+    console.log(nhietdophong.doisangdoF());
+    console.log(nhietdophong.doisangdoKenvi());
+</script>
+</body>
+</html>
