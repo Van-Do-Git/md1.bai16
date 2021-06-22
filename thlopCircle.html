@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao lop duong tron</title>
+</head>
+<body>
+<script>
+    class Circle{
+        constructor(radius, color) {
+            this.radius = radius;
+            this.color = color;
+        }
+        getRadius(){
+            return this.radius;
+        }
+        getArea(){
+            return Math.PI*this.radius*this.radius;
+        }
+    }
+    let dongho = new Circle(5,"Black");
+    console.log(dongho.getArea());
+    dongho.radius=15;
+    console.log(dongho.getArea());
+</script>
+</body>
+</html>
