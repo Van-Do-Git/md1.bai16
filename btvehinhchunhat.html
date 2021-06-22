@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ve hinh chu nhat</title>
+</head>
+<body>
+<input type="text" id="chieudai" ><label for="chieudai">Chieu Dai</label> <br>
+<input type="text" id="chieurong" ><label for="chieurong">Chieu Rong</label> <br>
+<input type="text" id="mau" ><label for="chieurong">Mau</label> <br>
+<button onclick="vehinhchunhat()">Ve Hinh</button>
+<p id="kichthuoc"></p><br>
+<canvas id ="myCanvas" width="900px" height="600px" style="border:1px solid #d3d3d3;"/>
+<script>
+ class Rectangle{
+     constructor(chieudai,chieurong) {
+         this.chieudai = chieudai;
+         this.chieurong = chieurong;
+     }
+     getDientich(){
+         return this.chieudai*this.chieurong;
+     }
+     getChuvi(){
+         return this.chieudai*this.chieurong*2;
+     }
+     vehinh(mau){
+         let vehinh=document.getElementById("myCanvas").getContext("2d");
+         vehinh.fillStyle=mau;
+         vehinh.fillRect(150,100,this.chieudai,this.chieurong);
+     }
+ }
+ function vehinhchunhat(mau) {
+     mau = document.getElementById("mau").value;
+     let a = +document.getElementById("chieudai").value;
+     let b = +document.getElementById("chieurong").value;
+     let hinhchunhat = new Rectangle(a, b);
+     document.getElementById("kichthuoc").innerText = "Dien tich la : " + hinhchunhat.getDientich() +";"+
+         "Chu vi la : " + hinhchunhat.getChuvi();
+     hinhchunhat.vehinh(mau);
+ }
+</script>
+</body>
+</html>
