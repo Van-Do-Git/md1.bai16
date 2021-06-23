@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap Dien Thoai</title>
+    <style>
+        td {
+            text-align: center;
+        }
+        button {
+            width: 80px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+
+<div style="float: left; border: red; border: 1px; border-style: solid;position: relative; top: 100px">
+    <table>
+        <tr>
+            <td  colspan="2" >
+                <textarea type="text" style="height: 50px" id="iphone"></textarea>
+            </td>
+           </tr>
+        <tr>
+            <td>
+                <button type =button onclick="iphone.battat();">On/Off</button>
+            </td>
+            <td>
+                <button type =button onclick="guitiniphone();">Gửi Tin</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="piniphone();">% Pin</button>
+            </td>
+            <td>
+                <button type =button onclick="iphone.sacpin();">Sạc Pin</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="soantiniphone()">Soạn Tin</button>
+            </td>
+            <td>
+                <button type =button onclick="xemthudiiphone();">Thu Di</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="ttiphone();">Trạng Thái</button>
+            </td>
+            <td>
+                <button type =button onclick="xemtiniphone();">Thu Den</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                IPhone 12 Pro Max
+            </td>
+        </tr>
+    </table>
+</div>
+<div style="float: left; border: black; border: 1px; border-style: solid; position: relative; left: 100px; top: 100px" >
+    <table>
+        <tr>
+            <td  colspan="2" height="60">
+                <textarea type="text" style="height: 50px" id="samsung"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="samsung.battat();">On/Off</button>
+            </td>
+            <td>
+                <button type =button onclick="guitinsamsung();">Gửi Tin</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="pinsamsung();">% Pin</button>
+            </td>
+            <td>
+                <button type =button onclick="samsung.sacpin();">Sạc Pin</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="soantinsamsung();">Soạn Tin</button>
+            </td>
+            <td>
+                <button type =button onclick="xemthudisamsung();">Thu Di</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type =button onclick="ttsamsung();">Trạng Thái</button>
+            </td>
+            <td>
+                <button type =button onclick="xemtinsamsung();">Thu Den</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Samsung Galaxy Zfold 2
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    class Dienthoai {
+        constructor(pin, trangthai) {
+            this.pin = pin;
+            this.trangthai = trangthai;
+            this.thuden = "";
+            this.soanthao = "";
+            this.thudi = "";
+
+        }
+
+        kttrangthai() {
+                this.pin -= 1;
+                return this.trangthai;
+        }
+
+        battat() {
+            if (this.trangthai === "bat") {
+                this.trangthai = "tat";
+            } else {
+                this.trangthai = "bat";
+            }
+        }
+
+        sacpin() {
+            if (this.pin == 100) {
+                alert("Pin đầy");
+                return ;
+            } else {
+                this.pin += 1;
+            }
+        }
+        soantinnhan(noidung) {
+            if (this.trangthai=="tat") {
+                return
+            } else{
+                this.soanthao=noidung;
+                this.pin -=1;
+            }
+
+        }
+
+        guitinnhan(tendienthoai) {
+            if (this.trangthai=="tat") {
+                return
+            } else {
+                this.pin -= 1;
+                this.thudi = this.soanthao;
+                tendienthoai.thuden=this.soanthao;
+                tendienthoai.pin -=1;
+            }
+        }
+
+        nhantinnhan() {
+            if (this.trangthai=="tat"){
+                return
+            } else{
+                this.pin -=1;
+                return this.thuden;
+            }
+        }
+
+        xemden() {
+            if (this.trangthai=="tat") {
+                return
+            } else {
+                this.pin -= 1;
+                return this.thuden;
+            }
+        }
+
+        xemgui() {
+            if (this.trangthai=="tat") {
+                return
+            } else {
+                this.pin -= 1;
+                return this.thudi;
+            }
+        }
+    }
+    let samsung = new Dienthoai(100,"tat");
+    let iphone = new Dienthoai(100,"tat");
+    // //Kiem tra trang thai
+    // function ttsamsung(){
+    //     document.getElementById("samsung").innerText=samsung.kttrangthai();
+    // }
+    // function ttiphone(){
+    //     document.getElementById("iphone").innerText=iphone.kttrangthai();
+    // }
+    //
+    // //Kiem tra % pin
+    // function pinsamsung(){
+    //     document.getElementById("samsung").innerText=samsung.pin;
+    // }
+    // function piniphone(){
+    //     document.getElementById("iphone").innerText=iphone.pin;
+    // }
+    //
+    // //Soan tin nhan
+    // function soantiniphone(){
+    //    iphone.soantinnhan(document.getElementById("iphone").innerText);
+    // }
+    // function soantinsamsung(){
+    //     samsung.soantinnhan(document.getElementById("samsung").innerText);
+    // }
+    //
+    // //Gui tin nhan
+    // function guitinsamsung(){
+    //     samsung.guitinnhan(iphone);
+    // }
+    // function guitiniphone(){
+    //     iphone.guitinnhan(samsung);
+    // }
+    //
+    // //Xem tin nhan den
+    // function xemtinsamsung(){
+    //     document.getElementById("samsung").innerText=samsung.xemden();
+    // }
+    // function xemtiniphone(){
+    //     document.getElementById("iphone").innerText=iphone.xemden();
+    // }
+    //
+    // //Xem tin nhan di
+    // function xemthudisamsung(){
+    //     document.getElementById("samsung").innerText=samsung.xemgui();
+    // }
+    // function xemthudiiphone(){
+    //     document.getElementById("iphone").innerText=iphone.xemgui();
+    // }
+</script>
+</body>
+</html>
