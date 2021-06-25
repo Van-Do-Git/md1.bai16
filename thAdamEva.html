@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AdamEva</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(name) {
+            this.weight = 10;
+            this.name = name;
+            this.decrease = 0;
+            this.Empty = true;
+        }
+
+        Decrease() {
+            if (this.decrease < this.weight) {
+                return this.decrease += 1;
+            } else {
+                this.Empty = false;
+                return console.log("Het roi nhe");
+            }
+
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        isEmpty() {
+            if (this.Empty) {
+                return (this.weight - this.decrease);
+            } else {
+                return console.log("Het roi nhe");
+            }
+        }
+    }
+    class Human{
+        constructor(name,sex,weight) {
+            this.name = name;
+            this.sex=sex;
+            this.weight=weight;
+        }
+        Humen(){
+            return this.name;
+        }
+        isMale(){
+            if(this.sex=="nam"){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        setGender(sex){
+            this.sex=sex;
+        }
+        checkApple(Apple){
+            Apple.isEmpty();
+        }
+        eatApple(Apple){
+            if (Apple.Empty) {
+                this.weight+=1;
+                Apple.Decrease();
+            }
+        }
+        getWeight(){
+            return this.weight;
+        }
+    }
+    let tao1= new Apple("tao1");
+    let Adam= new Human("Adam","nam",50);
+    let Eva = new Human("Eva","nu",48);
+    Adam.eatApple(tao1);
+    Eva.eatApple(tao1);
+    Adam.eatApple(tao1);
+    Eva.eatApple(tao1);
+    Adam.eatApple(tao1);
+    console.log(tao1.decrease)
+    Eva.eatApple(tao1);
+    Adam.checkApple(tao1);
+    Adam.eatApple(tao1);
+    Eva.eatApple(tao1);
+    Adam.eatApple(tao1);
+    Eva.eatApple(tao1);
+    Adam.eatApple(tao1);
+    Eva.eatApple(tao1);
+    console.log(Eva.weight);
+    console.log(Adam.weight);
+
+</script>
+</body>
+</html>
