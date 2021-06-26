@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ti vi va Dieu Khien</title>
+</head>
+<body>
+<script>
+    class Tivi{
+        constructor(chanel,volume,code) {
+            this.chanel = 1;
+            this.volume=volume;
+            this.code=code;
+            this.status=false;
+        }
+        turnonoff(){
+            if (this.status){
+                this.status=false;
+            } else{
+                this.status=true;
+            }
+        }
+        nextchanelUp(){
+            this.chanel+=1;
+        }
+        nextchanelDown(){
+            this.chanel-=1;
+        }
+        volumeUp(){
+            this.volume+=1;
+        }
+        volumeDown(){
+            this.volume-=1;
+        }
+    }
+    class Control{
+        constructor(code) {
+            this.code=code;
+        }
+        conect(tivi){
+            this.control=tivi;
+        }
+        turnonoff(){
+            if (this.code==this.control.code) {
+                this.control.turnonoff();
+            }
+        }
+        chanelUp(){
+            if (this.code==this.control.code){
+                this.control.nextchanelUp();
+            }
+        }
+        chanelDown() {
+            if (this.code == this.control.code) {
+                this.control.nextchanelDown();
+            }
+        }
+        upVolume() {
+            if (this.code == this.control.code) {
+                this.control.volumeUp();
+            }
+        }
+        downVolume() {
+            if (this.code == this.control.code) {
+                this.control.volumeDown();
+            }
+        }
+    }
+    let samsung= new Tivi(1,15,235);
+    let control=new Control(235);
+    control.conect(samsung);
+    console.log(samsung.status);
+    control.turnonoff();
+    console.log(samsung.status);
+    console.log(samsung.chanel);
+    console.log(samsung.volume);
+    control.chanelUp();
+    control.chanelUp();
+    control.chanelUp();control.chanelUp();
+    control.upVolume();
+    control.upVolume();
+    control.upVolume();control.upVolume();
+    control.upVolume();
+    control.upVolume();
+    control.upVolume();
+    control.upVolume();
+    console.log(samsung.chanel);
+    console.log(samsung.volume);
+
+</script>
+</body>
+</html>
